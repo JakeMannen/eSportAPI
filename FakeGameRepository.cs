@@ -19,6 +19,7 @@ namespace eSport
         public FakeGameRepository()
         {
 
+            //Create some initial data
             Game g1 = new Game()
             {
                 homeTeam = "Furious4",
@@ -163,6 +164,8 @@ namespace eSport
 
         public GameType UpdateGameType(int gameId, GameType gameType)
         {
+
+            //Does the game exist?
             var gameToEdit = gameTable.Find(g => g.id == gameId);
 
             if (gameToEdit != null)
@@ -170,10 +173,11 @@ namespace eSport
 
                 List<GameType> gameTypes;
                 
+                //Does the Game have any GameTypes at all? 
                 if(gameTypeTable.TryGetValue(gameId,out gameTypes))
                 {
 
-                    //Try to find the gametype to edit
+                    //Try to find the gametype to edit by description
                     var idGameType = gameTypes.Find(x => x.description==gameType.description);
 
                     if(idGameType != null)

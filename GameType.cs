@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace eSport
 {
+    //The GameType data model
     public class GameType
     {
+
         [Required]
         public string description { get; set; }
         public int numberOfOutcomes { get => outcomeOdds.Count; }
@@ -18,13 +20,5 @@ namespace eSport
         {
         }
 
-        /*
-        public GameType(string name, Dictionary<string, float> oddsList)
-        {
-            this.description = name;
-            this.outcomeOdds = oddsList;
-        }
-
-        */
     }
 }

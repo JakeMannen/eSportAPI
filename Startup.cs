@@ -28,9 +28,9 @@ namespace eSport
         {
             services.AddControllers();
 
+            //The gamerepository as a Singleton DI instance
             services.AddSingleton<IGameRepository, FakeGameRepository>();
 
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,9 +46,6 @@ namespace eSport
             app.UseRouting();
 
             app.UseAuthorization();
-
-
-            
 
             app.UseEndpoints(endpoints =>
             {

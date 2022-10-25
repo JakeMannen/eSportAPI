@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace eSport
 {
+    //The Game data model
     public class Game
     {
         public int id { get; set; }
@@ -30,26 +31,5 @@ namespace eSport
     public Game()
         {
         }
-        /*
-        public Game(string homeTeam, string awayTeam, string venue, DateTime startDate)
-        {
-         
-            this.homeTeam = homeTeam;
-            this.awayTeam = awayTeam;
-            this.venue = venue;
-            this.startDate = startDate;
-            this.description = homeTeam + " facing " + awayTeam + " at " + venue + " starting at " + startDate;
-        }
-
-        public Game(string description, string homeTeam, string awayTeam, string venue, DateTime startDate, List<GameType> gameTypes)
-        {
-
-            this.homeTeam = homeTeam;
-            this.awayTeam = awayTeam;
-            this.venue = venue;
-            this.startDate = startDate;
-            this.description = description;
-        }
-        */
     }
 }

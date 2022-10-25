@@ -27,7 +27,7 @@ namespace eSport.Controllers
 
 
         [HttpGet]
-        [Route("/v1/games")]
+        [Route("/api/v1/games")]
         [Produces("application/json")]
         public IEnumerable<Game> GetAllGames()
         {
@@ -40,15 +40,11 @@ namespace eSport.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Route("/v1/games")]
+        [Route("/api/v1/games")]
         public IActionResult AddGame([FromBody] Game game)
         {
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
+            //Create a new game
             var createdGame = gameRepository.CreateGame(game);
 
             return Ok(createdGame);
@@ -57,7 +53,8 @@ namespace eSport.Controllers
 
         [HttpPut]
         [Consumes("application/json")]
-        [Route("/v1/games/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Route("/api/v1/games/{id}")]
         public IActionResult EditGame([FromBody]Game game,[FromRoute] int id)
         {
 
@@ -78,14 +75,9 @@ namespace eSport.Controllers
         [HttpPost]
         [Consumes("application/json")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Route("/v1/games/{id}/gametypes")]
+        [Route("/api/v1/games/{id}/gametypes")]
         public IActionResult AddGameType([FromRoute] int id,[FromBody] GameType gameType)
         {
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
 
             try
             {
@@ -106,7 +98,7 @@ namespace eSport.Controllers
 
         [HttpGet]
         [Produces("application/json")]
-        [Route("/v1/games/{id}/gametypes")]
+        [Route("/api/v1/games/{id}/gametypes")]
         public IActionResult GetGameTypes([FromRoute] int id)
         {
             try
@@ -125,7 +117,8 @@ namespace eSport.Controllers
 
         [HttpPut]
         [Consumes("application/json")]
-        [Route("/v1/games/{id}/gametypes")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Route("/api/v1/games/{id}/gametypes")]
         public IActionResult EditGameTypes([FromRoute] int id, [FromBody] GameType gameType)
         {
             try
